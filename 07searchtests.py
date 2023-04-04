@@ -6,6 +6,8 @@ from pyunitreport import HTMLTestRunner
 # Para comunicarnos con el navegador usamos webdriver
 from selenium import webdriver
 
+#Tipos de Selectores
+
 class HomePageTest(unittest.TestCase):
 	# Realiza todo lo necesario antes de empezar la prueba
     

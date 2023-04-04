@@ -1,0 +1,41 @@
+# Con unittest nos podemos traer todas nuestras pruebas
+import unittest
+# Ayuda a orquestar cada una de las pruebas que estaremos
+# ejecutando junto con los reportes
+from pyunitreport import HTMLTestRunner
+# Para comunicarnos con el navegador usamos webdriver
+from selenium import webdriver
+
+class HomePageTest(unittest.TestCase):
+	# Realiza todo lo necesario antes de empezar la prueba
+    
+  #  @classmethod # Decorador para que las distintas paginas corran en una sola pestaña
+
+    def setUp(self):
+        self.driver = webdriver.Chrome(executable_path = "./chromedriver.exe")
+        driver = self.driver  #driver = self.driver para no estar escribiendo el codigo en los siguiente solo escribir driver
+	    
+        driver.implicitly_wait(20) # esperamos 20 seg antes de realizar la siguiente accion
+        driver.maximize_window() #decirle al navegoar que maximice la ventana porque puede que halla elementos responsivos
+        driver.get("http://demo.onestepcheckout.com/")   #ir al sitio para las pruebas
+  
+  
+	# Caso de prueba donde realizaremos una serie de acciones para que el navegador las automatice
+    def test_search_text_field(self):
+         search_field = self.driver.find_element_by_id("search") #busca por id del elemento(barra buscar)
+ 
+
+	# Indica al navegador que cierre las ventanas e inicios de sesion una vez terminadas las pruebas
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == "__main__":
+	unittest.main(verbosity = 2, testRunner = HTMLTestRunner(output = 'reportes', report_name = 'hello-world-report'))
+
+        #Para correr nuestra prueba: nos ubicamos en la carpeta del archivo
+        #y Ejecutamos python hello_word.py  
+
+
+
+
+
