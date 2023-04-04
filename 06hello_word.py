@@ -10,7 +10,7 @@ class HelloWorld(unittest.TestCase):
 	# Realiza todo lo necesario antes de empezar la prueba
     @classmethod # Decorador para que las distintas paginas corran en una sola pestaña
     def setUpClass(cls): #se reemplazo self por cls para que se ejecute 2 pruebas en 1 misma ventana
-        cls.driver = webdriver.Chrome(executable_path=r"../chromedriver.exe")
+        cls.driver = webdriver.Chrome(executable_path=r"./chromedriver.exe")
         driver = cls.driver
 		# esperamos 10 seg antes de realizar la siguiente accion
         driver.implicitly_wait(10)
