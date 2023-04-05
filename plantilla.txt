@@ -27,7 +27,9 @@ class HomePageTest(unittest.TestCase):
 
 	# Indica al navegador que cierre las ventanas e inicios de sesion una vez terminadas las pruebas
     def tearDown(self):
-        self.driver.quit()
+        #self.driver.quit()  #Opcion 1: este o los siguientes
+        self.driver.implicitly_wait(3)
+		    self.driver.close()
 
 if __name__ == "__main__":
 	unittest.main(verbosity = 2, testRunner = HTMLTestRunner(output = 'reportes', report_name = 'hello-world-report'))
