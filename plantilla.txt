@@ -18,7 +18,7 @@ class HomePageTest(unittest.TestCase):
         driver.implicitly_wait(20) # esperamos 20 seg antes de realizar la siguiente accion
         driver.maximize_window() #decirle al navegoar que maximice la ventana porque puede que halla elementos responsivos
         driver.get("http://demo.onestepcheckout.com/")   #ir al sitio para las pruebas
-  
+        #http://demo-store.seleniumacademy.com/
   
 	# Caso de prueba donde realizaremos una serie de acciones para que el navegador las automatice
     def test_search_text_field(self):
