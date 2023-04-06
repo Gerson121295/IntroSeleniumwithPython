@@ -66,6 +66,30 @@ if __name__=="__main":
 
 
 
+#plantilla para ejecutar todos los test en una instancia del navegador
+
+import unittest
+from selenium import webdriver
+
+class GoogleTest(unittest.TestCase):
+
+    @classmethod #decorador para en caso de que se quiera añadir nuevos casos de pruebas esos corran en una sola instancia del navegador(no se cierre el navegador, ejecute toda de una) 
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome(executable_path='../chromedriver.exe')
+        driver= cls.driver
+        driver.implicitly_wait(10)
+        driver.maximize_window()
+        driver.get('http://demo-store.seleniumacademy.com/')
+
+
+        #def test_search(self):
+        
+        @classmethod
+        def tearDownClass(cls):
+            cls.driver.close()
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 
 
 
