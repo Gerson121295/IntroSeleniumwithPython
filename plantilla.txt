@@ -39,5 +39,36 @@ if __name__ == "__main__":
 
 
 
+        #otra plantilla de ejemplo
+
+import unittest 
+from selenium import webdriver
+from time import sleep
+
+
+class Tables(unittest.TestCase):
+
+    def setUp(self):
+        self.driver = webdriver.Chrome(executable_path="./chromedriver.exe")
+        driver = self.driver
+        driver.get("http://the-internet.herokuapp.com")
+        driver.find_element_by_link_text("Sortable Data Tables").click()
+
+   # def test_sort_tables(self):
+
+
+    def tearDown(self):
+            self.driver.close()
+
+if __name__=="__main":
+     unittest.main
+
+
+
+
+
+
+
+
 
 
